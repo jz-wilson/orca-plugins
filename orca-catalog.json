@@ -31,6 +31,31 @@
           "capabilities": ["agent:read"]
         }
       ]
+    },
+    {
+      "id": "jz-wilson.helpin-tasks",
+      "source": {
+        "kind": "git",
+        "url": "https://github.com/jz-wilson/orca-plugins.git",
+        "ref": "main",
+        "path": "plugins/helpin-tasks"
+      },
+      "description": "Sidebar panel of open Helpin tasks; Start opens a workspace on a new branch with an agent on the task.",
+      "categories": ["agents", "tasks"],
+      "releases": [
+        {
+          "version": "0.1.0",
+          "commit": "31b39329e512983f17ffd57da65154e9271e03a9",
+          "contentHash": "15cfdb9f558ece003b8380885ea805e07d6576ce827fb838fd53682186d51ce8",
+          "execution": "trusted-worker",
+          "minimumOrca": "1.4.259",
+          "name": "Helpin Tasks",
+          "license": "MIT",
+          "repository": "https://github.com/jz-wilson/orca-plugins",
+          "contributes": [{ "kind": "panels", "name": "Helpin Tasks" }],
+          "capabilities": ["settings:own", "secrets:own", "workspace:read", "workspace:create", "agent:launch"]
+        }
+      ]
     }
   ]
 }
