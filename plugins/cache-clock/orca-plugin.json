@@ -1,0 +1,27 @@
+{
+  "manifestVersion": 2,
+  "id": "cache-clock",
+  "name": "Cache Clock",
+  "version": "0.1.0",
+  "description": "Status bar countdown until an agent's prompt cache goes cold.",
+  "repository": "https://github.com/jz-wilson/orca-plugins",
+  "license": "MIT",
+  "engines": {
+    "orca": ">=1.4.248"
+  },
+  "execution": "trusted-worker",
+  "pluginApi": 1,
+  "main": "src/worker.ts",
+  "contributes": {
+    "events": [{ "on": "agent.status.changed" }],
+    "statusBarItems": [
+      {
+        "id": "cache-clock",
+        "text": "cache",
+        "icon": "gauge",
+        "tooltip": "Time until the prompt cache goes cold"
+      }
+    ]
+  },
+  "capabilities": [{ "kind": "agent:read" }]
+}
