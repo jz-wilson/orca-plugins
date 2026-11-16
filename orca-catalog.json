@@ -1,0 +1,36 @@
+{
+  "$schema": "https://raw.githubusercontent.com/stablyai/orca/main/docs/schemas/plugins/orca-catalog.v2.schema.json",
+  "catalogVersion": 2,
+  "name": "jz-wilson Orca plugins",
+  "owner": "jz-wilson",
+  "plugins": [
+    {
+      "id": "jz-wilson.cache-clock",
+      "source": {
+        "kind": "git",
+        "url": "https://github.com/jz-wilson/orca-plugins.git",
+        "ref": "main",
+        "path": "plugins/cache-clock"
+      },
+      "description": "Status bar countdown until an agent's prompt cache goes cold.",
+      "categories": ["agents", "status-bar"],
+      "releases": [
+        {
+          "version": "0.1.0",
+          "commit": "6127b352ec5c975a74ebec90d936a9e1e619a03f",
+          "contentHash": "73717ef8b293a18a381b009ba58607f5bb962340d8e4bd887a9b7b19065b2526",
+          "execution": "trusted-worker",
+          "minimumOrca": "1.4.248",
+          "name": "Cache Clock",
+          "license": "MIT",
+          "repository": "https://github.com/jz-wilson/orca-plugins",
+          "contributes": [
+            { "kind": "events", "name": "agent.status.changed" },
+            { "kind": "statusBarItems", "name": "cache" }
+          ],
+          "capabilities": ["agent:read"]
+        }
+      ]
+    }
+  ]
+}
