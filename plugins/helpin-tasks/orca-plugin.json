@@ -1,0 +1,55 @@
+{
+  "manifestVersion": 2,
+  "id": "helpin-tasks",
+  "name": "Helpin Tasks",
+  "version": "0.1.0",
+  "description": "Sidebar panel listing open Helpin tasks; Start opens a workspace on a new branch with an agent working on the task.",
+  "repository": "https://github.com/jz-wilson/orca-plugins",
+  "license": "MIT",
+  "engines": {
+    "orca": ">=1.4.259"
+  },
+  "execution": "trusted-worker",
+  "pluginApi": 1,
+  "main": "src/worker.ts",
+  "contributes": {
+    "panels": [
+      {
+        "id": "helpin-tasks",
+        "title": "Helpin Tasks",
+        "icon": "flag",
+        "entry": "src/panel.tsx",
+        "ui": "components"
+      }
+    ],
+    "settings": [
+      {
+        "key": "serverUrl",
+        "title": "Helpin MCP URL",
+        "description": "The https URL of your Helpin server's MCP endpoint. The token is sent only here.",
+        "type": "string"
+      },
+      {
+        "key": "keyPrefix",
+        "title": "Task key prefix",
+        "description": "Only list tasks whose key starts with this, such as ABC-. Empty lists every open task.",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "agent",
+        "title": "Agent to start",
+        "description": "The agent Orca launches in the new workspace.",
+        "type": "string",
+        "default": "claude"
+      }
+    ]
+  },
+  "capabilities": [
+    { "kind": "settings:own" },
+    { "kind": "secrets:own" },
+    { "kind": "workspace:read" },
+    { "kind": "workspace:create" },
+    { "kind": "agent:launch" }
+  ]
+}
