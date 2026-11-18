@@ -56,6 +56,35 @@
           "capabilities": ["settings:own", "secrets:own", "workspace:read", "workspace:create", "agent:launch"]
         }
       ]
+    },
+    {
+      "id": "jz-wilson.tab-namer",
+      "source": {
+        "kind": "git",
+        "url": "https://github.com/jz-wilson/orca-plugins.git",
+        "ref": "main",
+        "path": "plugins/tab-namer"
+      },
+      "description": "Names an agent's tab after its task when the agent first finishes. Rule-based; an optional Haiku mode runs with no tools.",
+      "categories": ["agents"],
+      "releases": [
+        {
+          "version": "0.1.0",
+          "commit": "5d2c90b7e21f8e5fd32362b1cdba05a0de552eb3",
+          "contentHash": "931f28d459dfb0766118c1f9712f93faaf4499c3f83ad554865ec9d40918d7af",
+          "execution": "trusted-worker",
+          "minimumOrca": "1.4.259",
+          "name": "Tab Namer",
+          "license": "MIT",
+          "repository": "https://github.com/jz-wilson/orca-plugins",
+          "contributes": [
+            { "kind": "commands", "name": "Tab Namer: Name this agent's tab now" },
+            { "kind": "events", "name": "agent.status.changed" },
+            { "kind": "hooks", "name": "agent.prompt.before" }
+          ],
+          "capabilities": ["agent:read", "history:read", "storage:own", "settings:own"]
+        }
+      ]
     }
   ]
 }
