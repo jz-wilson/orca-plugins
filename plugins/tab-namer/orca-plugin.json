@@ -1,0 +1,51 @@
+{
+  "manifestVersion": 2,
+  "id": "tab-namer",
+  "name": "Tab Namer",
+  "version": "0.1.0",
+  "description": "Names an agent's tab after its task when the agent first finishes. Rule-based; an optional Haiku mode runs with no tools.",
+  "repository": "https://github.com/jz-wilson/orca-plugins",
+  "license": "MIT",
+  "engines": {
+    "orca": ">=1.4.259"
+  },
+  "execution": "trusted-worker",
+  "pluginApi": 1,
+  "main": "src/worker.ts",
+  "contributes": {
+    "events": [{ "on": "agent.status.changed" }],
+    "hooks": [{ "event": "agent.prompt.before" }],
+    "commands": [
+      { "id": "tab-namer.renameThis", "title": "Tab Namer: Name this agent's tab now", "when": "workspace" }
+    ],
+    "settings": [
+      {
+        "key": "enabled",
+        "title": "Name tabs when an agent first finishes",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "maxChars",
+        "title": "Longest tab name (characters)",
+        "type": "integer",
+        "default": 24,
+        "minimum": 8,
+        "maximum": 60
+      },
+      {
+        "key": "useModel",
+        "title": "Name with Claude Haiku",
+        "description": "Runs `claude -p` on Haiku with no tools, no MCP servers and no settings files, sending the first line of the task (at most 300 characters). Off: names come from the task text alone.",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  "capabilities": [
+    { "kind": "agent:read" },
+    { "kind": "history:read" },
+    { "kind": "storage:own" },
+    { "kind": "settings:own" }
+  ]
+}

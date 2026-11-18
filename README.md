@@ -5,6 +5,7 @@ Plugins for [Orca](https://github.com/stablyai/orca), MIT licensed.
 | Plugin | What it does | Runs code |
 | :- | :- | :- |
 | [helpin-tasks](plugins/helpin-tasks) | Sidebar panel of open Helpin tasks; Start opens a workspace on a new branch with an agent on the task | Yes, a trusted worker that calls only the Helpin URL you set; [what it can touch](plugins/helpin-tasks/README.md#security-and-privacy) |
+| [tab-namer](plugins/tab-namer) | Names an agent's tab after its task when the agent first finishes | Yes, a trusted worker that never reads terminal output; [what it can touch](plugins/tab-namer/README.md#security-and-privacy) |
 | [cache-clock](plugins/cache-clock) | Status bar countdown until an agent's prompt cache goes cold | Yes, a trusted worker; [what it can touch](plugins/cache-clock/README.md#security-and-privacy) |
 
 ## Install
